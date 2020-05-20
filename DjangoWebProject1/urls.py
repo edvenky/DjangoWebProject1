@@ -4,12 +4,16 @@ Definition of urls for DjangoWebProject1.
 
 from datetime import datetime
 from django.urls import path
+from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from app import forms, views
 
+import MyApp1.views
 
 urlpatterns = [
+    url(r'^$', MyApp1.views.index, name='index'),
+    url(r'^home$', MyApp1.views.index, name='home'),
     path('', views.home, name='home'),
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
